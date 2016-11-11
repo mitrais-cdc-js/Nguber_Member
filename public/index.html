@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="NguberMember" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="NguberMember" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="NguberMember" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <title>NGuber Member</title>
+    
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-rating/css/bootstrap-rating.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="application/assets/css/NguberMember.css">
+    <style>
+      .angular-google-map-container { height: 400px; }
+    </style>
+        
+    <!-- JavaScripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfcKqs6FYc6IKsWgt78KPKIuIRYi_KO6M" async defer></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <!--<script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>-->
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-rating/js/bootstrap-rating.js"></script>  
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+  </head>
+  <body ng-app="NguberMember" ng-controller="MainController">
+    <div class="mobile-screen">
+      <div ng-class="{header: currentUser.IsLoggedIn}" class="mobile-screen-content">
+        <!--[if lt IE 7]>
+          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->      
+        <ng-include ng-show="currentUser.IsLoggedIn" src="'application/views/Shared/Header.html'"></ng-include>      
+        <div class="container-fluid">
+          <ui-view>
+            <ng-include src="'application/views/Home/Index.html'"></ng-include>
+          </ui-view> 
+        </div>
+        <i class="version">ver. 0.0.0</i>  
+      </div>      
+    </div>
+
+    <!-- Javascripts -->
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+  
+    <!-- Application -->
+    <script src="application/NguberMember.js"></script>
+      <!-- Routes -->
+      <script src="application/Routes.js"></script>
+      
+      <!-- Directives -->
+      <script src="application/directives/RatingDirective.js"></script>
+    
+      <!-- Factories -->
+      <script src="application/factories/Auth.js"></script>
+      <script src="application/factories/Member.js"></script>
+      <script src="application/factories/Driver.js"></script>
+      <script src="application/factories/RideRequest.js"></script>
+      <script src="application/factories/CancelReason.js"></script>
+      <script src="application/factories/GoogleAPI_GoogleMap_GeoCode.js"></script>
+            
+      <!-- Controllers -->
+      <script src="application/controllers/MainController.js"></script>
+      <script src="application/controllers/AccountController.js"></script>
+      <script src="application/controllers/HomeController.js"></script>
+      <script src="application/controllers/ProfileController.js"></script>
+      <script src="application/controllers/RideRequest_EstimateController.js"></script>
+      <script src="application/controllers/RideRequest_SearchingController.js"></script>
+      <script src="application/controllers/RideRequest_WaitingController.js"></script>
+      <script src="application/controllers/RideRequest_EnrouteController.js"></script>
+      <script src="application/controllers/RideRequest_ArrivedController.js"></script>
+      <script src="application/controllers/RideRequestController.js"></script>
+      <script src="application/controllers/RideHistoryController.js"></script>
+
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+  </body>
+</html>

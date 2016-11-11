@@ -1,0 +1,23 @@
+<div class="">
+  <h3>Thank you for riding with us,</h3>
+  <h4>Please share your riding experience with us.</h4>
+</div>
+<hr>
+<br>
+
+<form ng-submit="SendFeedback()">
+  <div class="form-group">
+    <label class="control-label" style="display:block; font-size:150%">Rate your ride:</label>
+    <div class="text-center" style="font-size:200%">
+      <nguber-rating ng-model="Feedback.Rating"></nguber-rating>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label" style="display:block; font-size:150%">Comment:</label>
+    <textarea ng-model="Feedback.Comment" required maxlength="200" rows="5" class="form-control"></textarea>
+    <span class="help-block text-right">{{ Feedback.Comment.length }}/200 char(s)</span>
+  </div>
+  <br>
+  <hr>
+  <button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
+</form>

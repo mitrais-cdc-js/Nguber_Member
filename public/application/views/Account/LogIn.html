@@ -1,0 +1,26 @@
+<div style="background-color:#8d98ec; border-radius:5px; padding:20px; margin-top:60px;">
+  <h1 class="text-center"><b>NG</b><i>uber</i></h1>
+</div>
+
+<div style="width:80%; margin:auto; margin-top: 160px;">
+  <form ng-submit="LogIn()" ng-class="{'has-error':error.status.error}">
+    <div class="form-group">
+      <label for="UserName" class="control-label sr-only">User Name</label>
+      <input type="email" id="UserName" ng-model="User.UserName" required maxlength="50" placeholder="User Name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="Password" class="control-label sr-only">Password</label>
+      <input type="password" id="Password" ng-model="User.Password" required maxlength="50" placeholder="Password" class="form-control">
+    </div>
+    <span class="help-block small text-center" style="margin-top:-10px; margin-bottom:-20px;">{{ error.status.message }}</span>
+    <button type="submit" class="btn btn-block btn-primary" style="margin-top:40px;">LOGIN <b class="glyphicon glyphicon-log-in"></b></button>
+  </form> 
+  
+  <div class="text-right">
+    <a ui-sref="ResetPassword">forgot password?</a>
+  </div>
+  <div class="text-center" style="font-size:160%; font-weight:600; margin-top:20px;">
+    <a ui-sref="Register">not a member yet?</a>
+  </div>
+</div>
+

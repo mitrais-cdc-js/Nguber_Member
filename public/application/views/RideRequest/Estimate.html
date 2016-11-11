@@ -1,0 +1,80 @@
+<div id="modal" class="modal fade">
+  <div class="modal-dialog" style="width:100%; margin:0;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><b class="glyphicon glyphicon-remove-circle" style="font-size:120%;"></b></button>
+        <h4 class="modal-title">Confirm Request</h4>
+      </div>
+      <div class="modal-body">
+        <div class="detail">
+          <div class="form-group form-group-sm">
+            <p class="form-control-static" style="height:auto;">
+              <span class="ellipsis">from : {{ RideEstimate.PickUp }}</span>
+              <span class="ellipsis" style="display:block;">to : {{ RideEstimate.Destination }}</span>
+            </p>
+          </div>
+          <div class="form-group form-group-sm">
+            <p class="form-control-static">
+              <span class="pull-right">{{ RideEstimate.EstimatedDuration | durationFilter }} Mins</span>
+              <span>{{ (RideEstimate.EstimatedDistance / 1000) | number: 2 }} KMs</span>
+            </p>
+          </div>
+          <div class="form-group form-group-sm">
+            <p class="form-control-static">
+              <span class="pull-right">Rp. {{ RideEstimate.Total | number: 2 }}</span>
+              <span ng-show="RideEstimate.Discount">Rp. {{ -RideEstimate.Discount | number: 2 }}</span>
+            </p>
+          </div>
+        </div>
+      </div>    
+      <div class="modal-footer">
+        <form ng-submit="Request()">
+          <div class="form-group form-group-sm">
+            <select ng-model="RideEstimate.PaymentMethod" class="form-control selectpicker show-tick">   
+              <option style="display: none;"></option>
+              <option value="0">E-CASH : Rp. {{ currentUser.Profile.credit | number: 2 }}</option>
+              <option value="1">CASH</option>              
+            </select>
+          </div>
+          <button type="button" ng-click="Request()" data-dismiss="modal" class="btn btn-block btn-primary">OK</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<a ui-sref="Home" style="font-size:140%;"><b class="glyphicon glyphicon-circle-arrow-left"></b></a> <h3 style="display:inline-block; margin-top:0px;">Ride Request:</h3>
+
+<form ng-submit="GetEstimate()">
+  <div class="form-group form-group-sm">
+    <label for="PickUp" class="control-label sr-only">Pick Up</label>
+    <div class="input-group input-group-sm">
+      <input type="text" id="PickUp" ng-model="Estimate.PickUp" required maxlength="50" placeholder="Pick Up" class="form-control">
+      <input type="hidden" ng-model="Estimate.PickUpLatitude">
+      <input type="hidden" ng-model="Estimate.PickUpLongitude">
+      <span class="input-group-btn">
+        <button type="button" ng-click="SearchLocation()" class="btn btn-default"><b class="glyphicon glyphicon-search"></b></button>
+        <button type="button" ng-click="GetCurrentLocation()" class="btn btn-info"><b class="glyphicon glyphicon-map-marker"></b></button>
+        <button type="button" ng-click="SetPickUp()" class="btn btn-primary"><b class="glyphicon glyphicon-arrow-right"></b></button>
+      </span>
+    </div>
+  </div> 
+  <div ng-show="SelectDestination" class="form-group form-group-sm">
+    <label for="Destination" class="control-label sr-only">Destination</label>
+    <div class="input-group input-group-sm">
+      <input type="text" id="Destination" ng-model="Estimate.Destination" required maxlength="50" placeholder="Destination" class="form-control">
+      <input type="hidden" ng-model="Estimate.DestinationLatitude">
+      <input type="hidden" ng-model="Estimate.DestinationLongitude">
+      <span class="input-group-btn">
+        <button type="button" ng-click="SearchLocation()" class="btn btn-default"><b class="glyphicon glyphicon-search"></b></button>
+        <button type="button" ng-click="getDestination = false" class="btn btn-default"><b class="glyphicon glyphicon-arrow-left"></b></button>
+        <button type="button" ng-click="SetDestination()" class="btn btn-primary"><b class="glyphicon glyphicon-arrow-right"></b></button>
+      </span>
+    </div>
+  </div> 
+  
+  <div id="map" class="map-container" style="height:360px;">
+  </div>
+  
+  <button ng-show="GetEstimate" type="submit" class="btn btn-block btn-primary">CHECK FARE</button>
+</form>

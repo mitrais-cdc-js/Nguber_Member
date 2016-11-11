@@ -1,0 +1,98 @@
+body {
+  background-color: #000000;
+  transform: scale(0.8);  
+  width: 362px;
+  margin: auto;
+}
+
+.mobile-screen {
+  width: 360px;
+  height: 640px;
+  border: 1px solid #888888;
+  background: #b3d9ff;
+  background: linear-gradient(-90deg, #b3d9ff, #ccccff);
+  margin: auto; 
+  overflow: hidden;
+  box-sizing: content-box;
+  position: relative;
+}
+
+.mobile-screen-content.header {
+  padding-top: 65px;
+}
+
+.version {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  opacity: 0.7;
+}
+
+.navbar {
+  margin-bottom: 15px;
+}
+
+.help-block.has-error {
+  font-style: italic;
+}
+
+.credit {
+  font-weight: 600;
+}
+
+.home {
+   margin-top: 120px;
+   width: 100%;
+   table-layout: fixed;
+}
+
+.home td {
+  padding: 5px;
+}
+
+.grid {
+  table-layout: fixed;
+}
+
+.grid p {
+  margin: 0px;
+}
+
+.map-container {
+  height: 200px;
+  box-sizing: content-box;
+  margin: -5px 0px 10px;
+  background-color: #bbffbb;
+  border: 1px solid;
+}
+
+.detail .form-group {
+  border-bottom: 1px solid;
+  margin-bottom: 0px;
+}
+
+.detail b {
+  display: inline-block;
+}
+
+.comment {
+  overflow-y: auto;  
+  height: auto !important;
+  max-height: 100px;
+}
+
+.ellipsis {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.modal {
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: 5%;
+  right: 5%;
+}

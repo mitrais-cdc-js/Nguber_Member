@@ -1,0 +1,41 @@
+<div id="modal" class="modal fade">
+  <div class="modal-dialog" style="width:100%; margin:0;">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><b class="glyphicon glyphicon-remove-circle" style="font-size:120%;"></b></button>
+          <h4 class="modal-title">Confirm Cancellation</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div ng-repeat="cancelReason in CancelReasons | filter: filterWaiting" class="radio">
+              <label class="control-label"><input type="radio" ng-model="Cancel.CancelReason" value="{{ cancelReason.id }}"> {{ cancelReason.message }}</label>
+            </div>             
+          </div>
+        </div>    
+        <div class="modal-footer">
+          <button type="submit" ng-click="Cancel()" data-dismiss="modal" class="btn btn-block btn-danger">CONFIRM</button>
+        </div>
+      </form>
+    </div>
+  </div>  
+</div>
+
+<a ui-sref="Home" style="font-size:140%;"><b class="glyphicon glyphicon-circle-arrow-left"></b></a> <h3 style="display:inline-block; margin-top:0px;">Home:</h3>
+
+<div id="map" class="map-container" style="height:280px;">
+</div>
+
+<hr>
+<h3>Please stand by,</h3>
+<div class="detail">
+  <div class="form-group form-group-lg">
+    <p class="form-control-static" style="height:auto;">
+       <span style="display:block;">{{ RideRequest.driver.applicationUser.nameFirst + ' ' + RideRequest.driver.applicationUser.nameLast }}</span>
+       <span class="pull-right">{{ RideRequest.driver.vehicleNumber }}</span>       
+       <span>{{ RideRequest.driver.vehicleType }}</span>      
+    </p>    
+  </div>  
+</div>
+<h4>is coming to pick you up.</h4>
+<button type="button" data-toggle="modal" data-target="#modal" class="btn btn-block btn-danger" style="margin-top:20px;">CANCEL</button>

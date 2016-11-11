@@ -1,0 +1,37 @@
+<a ui-sref="Home" style="font-size:140%;"><b class="glyphicon glyphicon-circle-arrow-left"></b></a> <h3 style="display:inline-block; margin-top:0px;">Home:</h3>
+
+<div id="map" class="map-container" style="height:320px;">  
+</div>
+
+<div class="detail">
+  <div class="form-group form-group-sm">
+    <p class="form-control-static">
+      <b>{{ RideRequest.requested | date: 'dd/MM/yyyy HH:mm' }}</b>
+    </p>
+  </div>
+  <div class="form-group form-group-sm">
+    <p class="form-control-static" style="height:auto;">
+      <span class="ellipsis">from : <b>{{ RideRequest.pickUp }}</b></span>
+      <span class="ellipsis" style="display:block;">to : <b>{{ RideRequest.destination }}</b></span>
+    </p>
+  </div>
+  <div class="form-group form-group-sm">
+    <p class="form-control-static">
+      <b class="pull-right">{{ RideRequest.estimatedDuration | durationFilter }} Mins</b>
+      <b>{{ (RideRequest.estimatedDistance / 1000) | number: 2 }} KMs</b>
+    </p>
+  </div>
+  <div class="form-group form-group-sm">
+    <p class="form-control-static">
+      <b class="pull-right">Rp. {{ RideRequest.total | number: 2 }}</b>
+      <b ng-show="RideRequest.discount">Rp. {{ -RideRequest.discount | number: 2 }}</b>
+    </p>
+  </div>
+  <div class="form-group form-group-sm">
+    <p class="form-control-static" style="height:auto;">
+      <b style="display:block;">{{ RideRequest.driver.applicationUser.nameFirst + ' ' + RideRequest.driver.applicationUser.nameLast }}</b>     
+      <b class="pull-right">{{ RideRequest.driver.vehicleNumber }}</b>       
+      <b>{{ RideRequest.driver.vehicleType }}</b>        
+    </p>    
+  </div>
+</div>

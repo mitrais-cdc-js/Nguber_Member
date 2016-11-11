@@ -1,0 +1,31 @@
+<div id="modal" class="modal fade">
+  <div class="modal-dialog" style="width:100%; margin:0;">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><b class="glyphicon glyphicon-remove-circle" style="font-size:120%;"></b></button>
+          <h4 class="modal-title">Confirm Cancellation</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div ng-repeat="cancelReason in CancelReasons | filter: filterSearching" class="radio">            
+              <label class="control-label"><input type="radio" ng-model="Cancel.CancelReason" value="{{ cancelReason.id }}"> {{ cancelReason.message }}</label>
+            </div>             
+          </div>
+        </div>    
+        <div class="modal-footer">
+          <button type="submit" ng-click="Cancel()" data-dismiss="modal" class="btn btn-block btn-danger">CONFIRM</button>
+        </div>
+      </form>
+    </div>
+  </div>  
+</div>
+
+<div class="text-center" style="padding-top: 150px;">
+  <b class="fa fa-spinner fa-spin" style="font-size:400%;"></b>
+  <div style="margin-top:15px;">
+    <h2>PLEASE WAIT</h2>
+    <h4>Searching for driver...</h4>
+  </div>    
+</div>
+<button type="button" data-toggle="modal" data-target="#modal" class="btn btn-block btn-danger" style="margin-top:210px;">CANCEL</button>

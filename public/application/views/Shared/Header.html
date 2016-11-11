@@ -1,0 +1,20 @@
+<header>
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" ng-click="isCollapse = !isCollapse" class="navbar-toggle" aria-expanded="false">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a ui-sref="Home" class="navbar-brand"><b>NG</b><i>uber</i></a>
+        <a ui-sref="TopUp" class="navbar-brand pull-right credit">Rp. {{ currentUser.Profile.credit | number: 2 }}</a>
+      </div>
+      <div id="navbar" ng-init="isCollapse = true" ng-class="{in: !isCollapse}" ng-click="isCollapse = true" class="navbar-collapse collapse" style="max-height:initial;">
+        <ng-include src="'application/views/Shared/MainMenu.html'"></ng-include>
+        <ng-include src="'application/views/Shared/UserMenu.html'"></ng-include>
+      </div>
+    </div>
+  </nav>
+</header>
